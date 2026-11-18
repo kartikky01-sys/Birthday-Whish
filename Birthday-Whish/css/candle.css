@@ -1,0 +1,271 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(
+        135deg,
+        #1a0933,
+        #6a11cb,
+        #ff6ec7
+    );
+    color: white;
+    overflow-x: hidden;
+}
+
+.candle-page {
+    min-height: 100vh;
+    text-align: center;
+    padding: 30px 15px;
+}
+
+header p {
+    font-size: 18px;
+    letter-spacing: 2px;
+    color: #ffe0f2;
+}
+
+main {
+    margin-top: 55px;
+}
+
+h1 {
+    font-size: clamp(32px, 5vw, 50px);
+    text-shadow: 0 5px 15px #0004;
+}
+
+.subtitle {
+    margin-top: 15px;
+    font-size: 16px;
+    color: #ffe0f2;
+}
+
+/* Cake */
+
+.cake-container {
+    width: 300px;
+    height: 290px;
+    margin: 50px auto 20px;
+    position: relative;
+    animation: float 3s ease-in-out infinite;
+}
+
+.candles {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 25px;
+    z-index: 5;
+}
+
+.candle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.stick {
+    height: 65px;
+    width: 12px;
+    border-radius: 4px;
+    background: repeating-linear-gradient(
+        45deg,
+        #fff,
+        #fff 5px,
+        #ff79bd 5px,
+        #ff79bd 10px
+    );
+}
+
+.flame {
+    width: 18px;
+    height: 28px;
+    background: radial-gradient(
+        circle at 50% 70%,
+        #fff,
+        #ffe45e 40%,
+        #ff8c00 75%
+    );
+    border-radius: 50% 50% 40% 40%;
+    margin-bottom: 4px;
+    animation: flicker 0.4s infinite alternate;
+    box-shadow: 0 0 20px #ffcf48;
+    transition: 0.5s;
+}
+
+.candle.out .flame {
+    opacity: 0;
+    transform: scale(0);
+}
+
+/* Cake Layers */
+
+.cake-top {
+    position: absolute;
+    top: 85px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 180px;
+    height: 45px;
+    border-radius: 50%;
+    background: #ffb5d9;
+    border-bottom: 10px solid #ff72b6;
+    z-index: 3;
+}
+
+.cake-middle {
+    position: absolute;
+    top: 110px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 220px;
+    height: 65px;
+    background: #ff80bb;
+    border-radius: 10px 10px 20px 20px;
+    border-bottom: 8px solid #d94d96;
+    z-index: 2;
+}
+
+.cake-bottom {
+    position: absolute;
+    top: 165px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 270px;
+    height: 75px;
+    background: #ffc4e1;
+    border-radius: 15px 15px 25px 25px;
+    border-bottom: 10px solid #e85d9e;
+}
+
+.plate {
+    position: absolute;
+    top: 235px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px;
+    height: 20px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 5px 15px #0004;
+}
+
+/* Buttons */
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+button {
+    border: none;
+    padding: 15px 30px;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #57114c;
+    background: linear-gradient(
+        135deg,
+        #ffe17a,
+        #ff9acb
+    );
+    box-shadow: 0 5px 20px #ff9acb66;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: translateY(-4px) scale(1.05);
+}
+
+button[hidden] {
+    display: none;
+}
+
+/* Message */
+
+#message {
+    display: none;
+    margin: 35px auto;
+    max-width: 450px;
+    padding: 25px;
+    border-radius: 20px;
+    background: #ffffff22;
+    border: 1px solid #ffffff55;
+    animation: fadeIn 1s ease;
+}
+
+#message h2 {
+    color: #ffe17a;
+    margin-bottom: 12px;
+}
+
+#message p {
+    line-height: 1.7;
+}
+
+/* Animations */
+
+@keyframes flicker {
+    from {
+        transform: rotate(-5deg) scale(1);
+    }
+
+    to {
+        transform: rotate(5deg) scale(1.1);
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Mobile */
+
+@media(max-width: 500px) {
+
+    main {
+        margin-top: 45px;
+    }
+
+    .cake-container {
+        transform: scale(0.9);
+        transform-origin: top center;
+        margin-bottom: 0;
+    }
+
+    header p {
+        font-size: 15px;
+    }
+
+    .subtitle {
+        font-size: 14px;
+    }
+}
