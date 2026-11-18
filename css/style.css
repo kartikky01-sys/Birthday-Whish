@@ -1,0 +1,175 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+    background: linear-gradient(
+        135deg,
+        #1a0933,
+        #6a11cb,
+        #ff6ec7
+    );
+    color: white;
+}
+
+.firstpage {
+    min-height: 100vh;
+    width: 100%;
+    text-align: center;
+    padding: 25px 15px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Header */
+
+header {
+    padding: 20px;
+    animation: fadeDown 1.2s ease;
+}
+
+header div {
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    color: #ffe1f5;
+}
+
+/* Main Heading */
+
+main {
+    margin-top: 45px;
+}
+
+h1 {
+    font-size: clamp(30px, 5vw, 55px);
+    font-weight: 800;
+    color: white;
+    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    animation: fadeUp 1.3s ease;
+}
+
+/* Cake Image */
+
+#background {
+    margin: 30px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#background img {
+    width: min(80%, 380px);
+    max-height: 350px;
+    object-fit: contain;
+    filter: drop-shadow(0 15px 25px rgba(0,0,0,0.3));
+    animation: cakeFloat 3s ease-in-out infinite;
+}
+
+/* Button */
+
+form {
+    margin-top: 30px;
+}
+
+form a {
+    text-decoration: none;
+}
+
+button {
+    padding: 16px 40px;
+    border: none;
+    border-radius: 50px;
+    background: linear-gradient(
+        135deg,
+        #ffcf70,
+        #ff8fc7
+    );
+    color: #42104e;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 8px 25px rgba(255, 143, 199, 0.4);
+    transition: all 0.3s ease;
+    animation: fadeUp 1.5s ease;
+}
+
+button:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 12px 30px rgba(255, 143, 199, 0.6);
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+/* Animations */
+
+@keyframes cakeFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Mobile Responsive */
+
+@media (max-width: 600px) {
+    .firstpage {
+        padding-top: 35px;
+    }
+
+    header div {
+        font-size: 16px;
+    }
+
+    main {
+        margin-top: 55px;
+    }
+
+    h1 {
+        font-size: 32px;
+    }
+
+    #background img {
+        width: 90%;
+        max-height: 300px;
+    }
+
+    button {
+        padding: 14px 32px;
+        font-size: 16px;
+    }
+}
